@@ -1,7 +1,9 @@
 package com.soraka.srb.core;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.soraka.srb.core.mapper.DictMapper;
+import com.soraka.srb.core.pojo.entity.Dict;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,12 +32,21 @@ public class MybatisTest {
 
     @Test
     public void testConnection() throws SQLException {
-        log.debug("dataSource.getConnection() = " + dataSource.getConnection());;
+        log.debug("dataSource.getConnection() = " + dataSource.getConnection());
     }
 
     @Test
     public void testDictMapperSelectList() {
         log.debug("dictMapper.selectList() = " + dictMapper.selectList(new QueryWrapper<>()));
+    }
+
+    @Test
+    public void testPage() {
+        Page<Dict> dictPage = dictMapper.selectPage(new Page<>(1, 5), null);
+        dictPage.getRecords();
+        dictPage.getTotal();
+        dictPage.getPages();
+        dictPage.getSize();
     }
 
 

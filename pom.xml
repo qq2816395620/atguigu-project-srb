@@ -15,6 +15,7 @@
     <modules>
         <module>srb-common</module>
         <module>srb-service-core</module>
+        <module>srb-service-base</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -188,12 +189,4 @@
 
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 </project>
